@@ -5,12 +5,12 @@ plugins {
 
 android {
     namespace = "com.shanindu.android_jetpack_mvvm"
-    compileSdk = 33
+    compileSdk = 34
 
     defaultConfig {
         applicationId = "com.shanindu.android_jetpack_mvvm"
         minSdk = 24
-        targetSdk = 33
+        targetSdk = 34
         versionCode = 1
         versionName = "1.0"
 
@@ -70,6 +70,10 @@ dependencies {
 
     // Coroutines for asynchronous programming
     implementation("org.jetbrains.kotlinx:kotlinx-coroutines-android:1.5.1")
+
+    //Navigation composer
+    implementation("androidx.navigation:navigation-compose:2.7.6")
+    implementation("androidx.compose.material:material:1.5.4")
 
     testImplementation("junit:junit:4.13.2")
 
