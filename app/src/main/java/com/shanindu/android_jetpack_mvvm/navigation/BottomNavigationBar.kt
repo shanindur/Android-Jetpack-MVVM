@@ -1,6 +1,5 @@
-package com.shanindu.android_jetpack_mvvm.view
+package com.shanindu.android_jetpack_mvvm.navigation
 
-import android.annotation.SuppressLint
 import androidx.compose.foundation.layout.RowScope
 import androidx.compose.material.BottomNavigation
 import androidx.compose.material.BottomNavigationItem
@@ -8,8 +7,6 @@ import androidx.compose.material.ContentAlpha
 import androidx.compose.material.Icon
 import androidx.compose.material.LocalContentColor
 import androidx.compose.material.Text
-import androidx.compose.material3.ExperimentalMaterial3Api
-import androidx.compose.material3.Scaffold
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.navigation.NavDestination
@@ -17,32 +14,13 @@ import androidx.navigation.NavDestination.Companion.hierarchy
 import androidx.navigation.NavGraph.Companion.findStartDestination
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.currentBackStackEntryAsState
-import androidx.navigation.compose.rememberNavController
-import com.shanindu.android_jetpack_mvvm.navigation.BottomNavGraph
-
-@OptIn(ExperimentalMaterial3Api::class)
-@SuppressLint("UnusedMaterialScaffoldPaddingParameter", "UnusedMaterial3ScaffoldPaddingParameter")
-@Composable
-fun MainScreen() {
-    val navController = rememberNavController()
-
-    Scaffold(
-        bottomBar = {
-            BottomBar(navHostController = navController)
-        }
-    ) {
-
-        BottomNavGraph(navHostController = navController)
-    }
-
-}
 
 @Composable
-fun BottomBar(navHostController: NavHostController) {
+fun BottomNavigationBar(navHostController: NavHostController) {
     val screens = listOf(
-        BottomBarScreen.Home,
-        BottomBarScreen.Card,
-        BottomBarScreen.Profile
+        NavigationItems.Home,
+        NavigationItems.Post,
+        NavigationItems.Profile
     )
     val navBackStackEntry by navHostController.currentBackStackEntryAsState()
     val currentDestination = navBackStackEntry?.destination
@@ -60,7 +38,7 @@ fun BottomBar(navHostController: NavHostController) {
 
 @Composable
 fun RowScope.AddItem(
-    screen: BottomBarScreen,
+    screen: NavigationItems,
     currentDestination: NavDestination?,
     navHostController: NavHostController
 ) {

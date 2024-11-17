@@ -10,7 +10,7 @@ object DateTime {
         timestamp: String,
     ): String {
         val timestampFormat = "yyyy-MM-dd'T'HH:mm:ss'Z'"
-        val outputFormat = "MMM dd, yyyy HH:mm:ss"
+        val outputFormat = "MMM dd, yyyy"
 
         val dateFormatter = SimpleDateFormat(outputFormat, Locale.getDefault())
         dateFormatter.timeZone = TimeZone.getTimeZone("GMT")

@@ -1,11 +1,16 @@
-package com.shanindu.android_jetpack_mvvm.view
+package com.shanindu.android_jetpack_mvvm.ui
 
 import android.annotation.SuppressLint
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.automirrored.filled.ArrowBack
+import androidx.compose.material.icons.filled.ArrowBack
 import androidx.compose.material3.CenterAlignedTopAppBar
 import androidx.compose.material3.ExperimentalMaterial3Api
+import androidx.compose.material3.Icon
+import androidx.compose.material3.IconButton
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
@@ -15,20 +20,27 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 
-@SuppressLint("UnusedMaterial3ScaffoldPaddingParameter")
 @OptIn(ExperimentalMaterial3Api::class)
-//@SuppressLint("UnusedMaterial3ScaffoldPaddingParameter")
+@SuppressLint("UnusedMaterial3ScaffoldPaddingParameter")
 @Composable
-fun ProfileScreen() {
+fun HomeScreen() {
     Scaffold(
         topBar = {
             CenterAlignedTopAppBar(
-                colors = TopAppBarDefaults.smallTopAppBarColors(
+                colors = TopAppBarDefaults.centerAlignedTopAppBarColors(
                     containerColor = MaterialTheme.colorScheme.primaryContainer,
                     titleContentColor = MaterialTheme.colorScheme.primary,
                 ),
                 title = {
                     androidx.compose.material.Text("GitHub Platform")
+                },
+                navigationIcon = {
+                    IconButton(onClick = { /* do something */ }) {
+                        Icon(
+                            imageVector = Icons.AutoMirrored.Filled.ArrowBack,
+                            contentDescription = "Localized description"
+                        )
+                    }
                 },
             )
         },
@@ -36,13 +48,13 @@ fun ProfileScreen() {
         Box(
             modifier = Modifier
                 .fillMaxSize()
-                .background(Color.Red),
+                .background(Color.White),
             contentAlignment = Alignment.Center
         ) {
             Text(
-                text = "Profile",
-                color = Color.White
+                text = "Home Screen", color = Color.White
             )
         }
     }
+
 }

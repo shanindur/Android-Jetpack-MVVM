@@ -1,4 +1,4 @@
-package com.shanindu.android_jetpack_mvvm.view
+package com.shanindu.android_jetpack_mvvm.ui
 
 import android.annotation.SuppressLint
 import androidx.compose.foundation.background
@@ -15,42 +15,33 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 
-@OptIn(ExperimentalMaterial3Api::class)
 @SuppressLint("UnusedMaterial3ScaffoldPaddingParameter")
+@OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun HomeScreen() {
+fun DetailsScreen(itemId: String) {
     Scaffold(
         topBar = {
             CenterAlignedTopAppBar(
-                colors = TopAppBarDefaults.smallTopAppBarColors(
+                colors = TopAppBarDefaults.centerAlignedTopAppBarColors(
                     containerColor = MaterialTheme.colorScheme.primaryContainer,
                     titleContentColor = MaterialTheme.colorScheme.primary,
                 ),
                 title = {
                     androidx.compose.material.Text("GitHub Platform")
                 },
-//                navigationIcon = {
-//                    IconButton(onClick = { /* do something */ }) {
-//                        Icon(
-//                            imageVector = Icons.Filled.ArrowBack,
-//                            contentDescription = "Localized description"
-//                        )
-//                    }
-//                },
             )
         },
     ) {
         Box(
             modifier = Modifier
                 .fillMaxSize()
-                .background(Color.White),
+                .background(Color.Red),
             contentAlignment = Alignment.Center
         ) {
             Text(
-                text = "Home Screen",
+                text = "Profile",
                 color = Color.White
             )
         }
     }
-
 }
