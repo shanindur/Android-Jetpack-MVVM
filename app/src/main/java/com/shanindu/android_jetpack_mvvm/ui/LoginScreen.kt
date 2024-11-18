@@ -16,7 +16,6 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavHostController
-import com.shanindu.android_jetpack_mvvm.navigation.NavigationItems
 
 @Composable
 fun LoginScreen(navController: NavHostController) {
@@ -35,8 +34,8 @@ fun LoginScreen(navController: NavHostController) {
         Spacer(modifier = Modifier.height(24.dp))
         Button(
             onClick = {
-                navController.navigate(route = NavigationItems.Main.route) {
-                    popUpTo(route = NavigationItems.Login.route) { inclusive = true }
+                navController.navigate(route = "home") {
+                    popUpTo(route = "login") { inclusive = true }
                 }
             }, modifier = Modifier.fillMaxWidth()
         ) {

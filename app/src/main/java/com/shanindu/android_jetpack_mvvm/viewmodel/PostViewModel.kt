@@ -26,7 +26,7 @@ class PostViewModel : ViewModel() {
 
         viewModelScope.launch {
             try {
-                val cards = postRepository.getCreditCards()
+                val cards = postRepository.getPosts()
                 _posts.value = cards
                 _isLoading.value = false
                 Log.e("fetchPosts", _posts.value.toString())

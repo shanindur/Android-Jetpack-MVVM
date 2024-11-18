@@ -18,9 +18,9 @@ sealed class NavigationItems(
         icon = Icons.Default.Home
     )
 
-    object Main : NavigationItems(
-        route = "main",
-        title = "Main",
+    object Details : NavigationItems(
+        route = "details/{itemId}",
+        title = "Details",
         icon = Icons.Default.Home
     )
 

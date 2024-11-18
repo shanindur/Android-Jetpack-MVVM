@@ -23,13 +23,14 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
+import androidx.navigation.NavHostController
 import com.shanindu.android_jetpack_mvvm.model.Post
 import com.shanindu.android_jetpack_mvvm.ui.component.LoadingScreen
 import com.shanindu.android_jetpack_mvvm.util.DateTime
 import com.shanindu.android_jetpack_mvvm.viewmodel.PostViewModel
 
 @Composable
-fun PostScreen(postViewModel: PostViewModel) {
+fun PostScreen(postViewModel: PostViewModel, navController: NavHostController) {
     val posts by postViewModel.posts.observeAsState(emptyList())
     val isLoading by postViewModel.isLoading.observeAsState(true)
 
@@ -60,7 +61,7 @@ fun PostScreen(postViewModel: PostViewModel) {
                 }
             }
             items(posts) { card ->
-                PostItem(card)
+                PostItem(card, navController)
             }
         }
     }
@@ -68,13 +69,14 @@ fun PostScreen(postViewModel: PostViewModel) {
 }
 
 @Composable
-fun PostItem(post: Post) {
+fun PostItem(post: Post, navController: NavHostController) {
     Card(
         modifier = Modifier
             .fillMaxWidth()
             .padding(16.dp),
         elevation = CardDefaults.cardElevation(),
-        colors = CardDefaults.cardColors(Color.LightGray)
+        colors = CardDefaults.cardColors(Color.LightGray),
+        onClick = {navController.navigate("details/${post.id}")}
     ) {
         Column(
             modifier = Modifier

@@ -6,7 +6,11 @@ import com.shanindu.android_jetpack_mvvm.service.RetrofitInstance
 class PostRepository {
     private val postService = RetrofitInstance.postService
 
-    suspend fun getCreditCards(): List<Post> {
+    suspend fun getPosts(): List<Post> {
         return postService.getPosts()
+    }
+
+    suspend fun getPostDetails(): Post {
+        return postService.getPostDetails()
     }
 }
