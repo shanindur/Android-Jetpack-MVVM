@@ -58,7 +58,7 @@ dependencies {
     implementation("androidx.compose.ui:ui")
     implementation("androidx.compose.ui:ui-graphics")
     implementation("androidx.compose.ui:ui-tooling-preview")
-    implementation("androidx.compose.material3:material3")
+    implementation("androidx.compose.material3:material3:1.3.1")
     implementation("com.google.android.gms:play-services-auth:21.2.0")
 
     // Jetpack Compose
@@ -75,6 +75,9 @@ dependencies {
     //Navigation composer
     implementation("androidx.navigation:navigation-compose:2.8.4")
     implementation("androidx.compose.material:material:1.7.5")
+
+    //Images from URL
+    implementation("io.coil-kt:coil-compose:2.4.0")
 
     testImplementation("junit:junit:4.13.2")
 

@@ -46,13 +46,11 @@ fun AppNavigation() {
                     arguments = listOf(navArgument("itemId") { defaultValue = "Default Item" })
                 ) { backStackEntry ->
                     val itemId = backStackEntry.arguments?.getString("itemId") ?: "Default Item"
-                    DetailsScreen(itemId = itemId)
+                    DetailsScreen(itemId = itemId, navController)
                 }
             }
         }
     }
-
-
 }
 
 

@@ -1,9 +1,9 @@
 package com.shanindu.android_jetpack_mvvm.ui
 
-import android.annotation.SuppressLint
-import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.CenterAlignedTopAppBar
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.MaterialTheme
@@ -15,9 +15,8 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 
-@SuppressLint("UnusedMaterial3ScaffoldPaddingParameter")
 @OptIn(ExperimentalMaterial3Api::class)
-//@SuppressLint("UnusedMaterial3ScaffoldPaddingParameter")
+
 @Composable
 fun ProfileScreen() {
     Scaffold(
@@ -28,21 +27,22 @@ fun ProfileScreen() {
                     titleContentColor = MaterialTheme.colorScheme.primary,
                 ),
                 title = {
-                    androidx.compose.material.Text("GitHub Platform")
+                    Text("Profile", style = MaterialTheme.typography.headlineLarge)
                 },
             )
         },
-    ) {
-        Box(
-            modifier = Modifier
-                .fillMaxSize()
-                .background(Color.Red),
-            contentAlignment = Alignment.Center
+    ) { innerPadding ->
+        Column(
+            modifier = Modifier.padding(innerPadding)
         ) {
-            Text(
-                text = "Profile",
-                color = Color.White
-            )
+            Box(
+                modifier = Modifier.fillMaxSize(), contentAlignment = Alignment.Center
+            ) {
+                Text(
+                    text = "Profile", color = Color.White
+                )
+            }
         }
+
     }
 }
